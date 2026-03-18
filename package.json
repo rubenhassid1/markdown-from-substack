@@ -1,0 +1,15 @@
+{
+  "name": "markdown-from-substack",
+  "version": "1.0.0",
+  "description": "Convert Substack blog posts to clean Markdown files",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "turndown": "^7.2.0",
+    "cheerio": "^1.0.0"
+  }
+}

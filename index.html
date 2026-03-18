@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown from Substack</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="6" fill="#FF6719" />
+            <path
+              d="M8 10h16v2H8v-2zm0 5h16v2H8v-2zm0 5h10v2H8v-2z"
+              fill="white"
+            />
+          </svg>
+          <h1>Markdown from Substack</h1>
+        </div>
+        <p class="tagline">
+          Turn any Substack article into a clean <code>.md</code> file for
+          Claude
+        </p>
+      </header>
+
+      <main>
+        <div class="input-section">
+          <div class="input-wrapper">
+            <input
+              type="url"
+              id="url-input"
+              placeholder="Paste a Substack URL here..."
+              autocomplete="off"
+            />
+            <button id="convert-btn" onclick="convert()">Convert</button>
+          </div>
+          <p class="hint">
+            Example: https://yourname.substack.com/p/your-article
+          </p>
+        </div>
+
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <span>Fetching and converting...</span>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+
+        <div id="result" class="result hidden">
+          <div class="result-header">
+            <h2 id="result-title"></h2>
+            <div class="result-actions">
+              <button class="btn-secondary" onclick="copyMarkdown()">
+                Copy
+              </button>
+              <button class="btn-primary" onclick="downloadMarkdown()">
+                Download .md
+              </button>
+            </div>
+          </div>
+          <div class="markdown-preview">
+            <pre><code id="markdown-output"></code></pre>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          Paste a Substack URL, get perfect Markdown. Built for use with Claude.
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://unpkg.com/turndown@7.2.0/dist/turndown.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
